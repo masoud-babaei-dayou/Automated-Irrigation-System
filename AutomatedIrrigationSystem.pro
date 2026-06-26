@@ -1,11 +1,14 @@
-QT += quick virtualkeyboard
-
+QT += quick core sql quickcontrols2
 SOURCES += \
-        main.cpp
+        datalogger.cpp \
+        gpiocontroller.cpp \
+        main.cpp \
+        relaycontrol.cpp
 
 resources.files = main.qml 
 resources.prefix = /$${TARGET}
-RESOURCES += resources
+RESOURCES += resources \
+    res.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -17,3 +20,13 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+HEADERS += \
+    datalogger.h \
+    gpiocontroller.h \
+    relaycontrol.h
+
+DISTFILES += \
+    qmlfir.qml
+
+
